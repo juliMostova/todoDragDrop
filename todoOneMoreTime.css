@@ -79,6 +79,9 @@ text-align: start;
 padding-left: 10px;
 list-style-type: none;
 }
+.todo>li{
+    list-style-type: none;
+}
 .allul>li{
     color:rgb(35, 35, 34); 
 }
