@@ -1,7 +1,8 @@
 const input = document.querySelector(".text"),
   add = document.querySelector(".add"),
   contentUl = document.querySelector(".content"),
-  createCard = document.querySelector(".createCard");
+  createCard = document.querySelector(".createCard"),
+  todoCards = document.querySelectorAll('.todo');
 
 let draggableTodo = null;
 
@@ -10,7 +11,7 @@ add.addEventListener("click", addTasks);
 function addTasks() {
   let inpVal = input.value;
   if (inpVal == "") {
-    alert("You neet to type something!");
+    alert("You need to type something!");
   } else {
     let li = document.createElement("li");
     draggableTodo = li;
@@ -44,8 +45,14 @@ function addNewCard() {
   div.classList.add("todo");
   div.innerHTML = `
     <span contenteditable="true" class="title">Enter the title</span>
+   
     `;
   wrapperTask.appendChild(div);
+document.querySelectorAll('.todo').forEach(item =>{
+    item.addEventListener('dblclick',function(){
+  item.remove();
+    });
+  })
   changeTittle();
   dragDropShow();
   delBtn(".close");
@@ -63,29 +70,30 @@ changeTittle();
 
 function dragDropShow() {
   let allTodo = document.querySelectorAll(".todo");
-  console.log(allTodo);
 
   for (let i = 0; i < allTodo.length; i++) {
     let todo = allTodo[i];
 
-    console.log(todo);
-
     todo.addEventListener("dragover", (e) => {
       e.preventDefault();
-      console.log("dragover");
+     
     });
     todo.addEventListener("dragenter", function (e) {
       e.preventDefault();
-      console.log("dragenter");
+     
     });
     todo.addEventListener("dragleave", function (e) {
       console.log("dragleave");
     });
     todo.addEventListener("drop", function (e) {
       this.append(draggableTodo);
-      console.log("drop");
+    
     });
+
+  
   }
 }
 
 dragDropShow();
+
+

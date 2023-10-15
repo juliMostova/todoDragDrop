@@ -29,7 +29,7 @@ margin: 15px;
 }
 
 .wrapper_tasks{
- 
+ position: relative;
      display: flex; 
     justify-content: space-around; 
      /
