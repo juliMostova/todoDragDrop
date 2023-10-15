@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    background-image: url(forest-438432_1280.jpg);
+    background-position: cover;
+    background-position: center;
+/* min-height: 100vh; */
+ /* overflow: hidden;  */
+}
+
+.wrapper{
+/* width: 1100px; */
+width: 100%;
+min-height: 100vh;
+/* height: 100%; */
+padding: 10px 20px;
+margin: 15px;
+
+}
+
+.wrapper h1{
+    margin: 15px;
+    color:#fff;
+}
+
+.wrapper_tasks{
+ 
+     display: flex; 
+    justify-content: space-around; 
+     /
+ 
+}
+.todo{
+     /* position: relative;  */
+    width: 220px;
+      min-height: 150px;  
+    background-color: rgba(185, 191, 191,.4);
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 22px;
+    /* margin-bottom: 10px; */
+}
+ .progress, .done{
+   
+   width: 220px;
+     /* min-height: 150px;   */
+   background-color: rgba(185, 191, 191,.4);
+   text-align: center;
+   border: 2px solid black;
+   border-radius: 5px;
+   cursor: pointer;
+   font-weight: 600;
+   font-size: 22px;
+} 
+
+
+/* .done:hover{
+    background-color: rgba(185, 191, 191,.4);
+}
+
+.todo:hover{
+    background-color: rgba(185, 191, 191,.4);
+}
+
+.progress:hover{
+    background-color: rgba(185, 191, 191,.4);
+}  */
+.todo>ul{
+    color:rgb(35, 35, 34); 
+text-align: start;
+padding-left: 10px;
+list-style-type: none;
+}
+.allul>li{
+    color:rgb(35, 35, 34); 
+}
+
+.text{
+    height: 40px;
+    padding-left: 5px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 3px;
+}
+.add{
+    width: 25px;
+    height: 40px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.column{
+    background-color: rgba(232, 237, 237, 0.4);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+margin-top: 15px;
+    width: 99%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.column>button{
+    width: 25px;
+    height: 20px;
+}
+
+.createCard{
+    position: absolute;
+    bottom: 55px;
+    right: 50%;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(232, 237, 237, 0.4);
+  padding: 15px 10px 15px 15px;
+  font-size: 19px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  /* transform: translate(50%,50%); */
+}
+
+.wrapper .createCard:hover{
+    background-color: bisque;
+}
