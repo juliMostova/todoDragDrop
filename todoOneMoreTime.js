@@ -2,7 +2,7 @@ const input = document.querySelector(".text"),
   add = document.querySelector(".add"),
   contentUl = document.querySelector(".content"),
   createCard = document.querySelector(".createCard"),
-  todoCards = document.querySelectorAll('.todo');
+  todoCards = document.querySelectorAll(".todo");
 
 let draggableTodo = null;
 
@@ -14,16 +14,29 @@ function addTasks() {
     alert("You need to type something!");
   } else {
     let li = document.createElement("li");
-    draggableTodo = li;
-    li.innerHTML = `<div class="column" draggable="true" onDragStart(event)>
+    // draggableTodo = li;
+    li.innerHTML = `<div class="column" draggable="true"    >
        ${inpVal} 
             <button class="close">х</button>
+           
             </div>`;
-
+            //onDragStart(e)
     contentUl.appendChild(li);
+
+    let columnAll = document.querySelectorAll(".column");
+
+    for (let i = 0; i < columnAll.length; i++) {
+      let column = columnAll[i];
+      column.addEventListener('dragstart',(e)=>{
+        draggableTodo = e.target;
+        console.log("dragstart");
+      });
+
+    
+    }
   }
   input.value = "";
-
+  // draggableTodo = li;
   delBtn(".close");
 }
 
@@ -44,15 +57,14 @@ function addNewCard() {
   let div = document.createElement("div");
   div.classList.add("todo");
   div.innerHTML = `
-    <span contenteditable="true" class="title">Enter the title</span>
-   
-    `;
+    <span contenteditable="true" class="title">Enter the title</span>`;
   wrapperTask.appendChild(div);
-document.querySelectorAll('.todo').forEach(item =>{
-    item.addEventListener('dblclick',function(){
-  item.remove();
+
+  document.querySelectorAll(".todo").forEach((item) => {
+    item.addEventListener("dblclick", function () {
+      item.remove();
     });
-  })
+  });
   changeTittle();
   dragDropShow();
   delBtn(".close");
@@ -76,24 +88,17 @@ function dragDropShow() {
 
     todo.addEventListener("dragover", (e) => {
       e.preventDefault();
-     
     });
     todo.addEventListener("dragenter", function (e) {
       e.preventDefault();
-     
     });
     todo.addEventListener("dragleave", function (e) {
       console.log("dragleave");
     });
     todo.addEventListener("drop", function (e) {
       this.append(draggableTodo);
-    
     });
-
-  
   }
 }
 
 dragDropShow();
-
-
